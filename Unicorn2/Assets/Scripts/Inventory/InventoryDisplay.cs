@@ -19,6 +19,15 @@ public class InventoryDisplay : MonoBehaviour
 
     public void UpdateUI(Collectible_So collectible)
     {
-        _itemImage.sprite = collectible.sprite;
+        if (collectible != null)
+        {
+            _itemImage.enabled = true;
+            _itemImage.sprite = collectible.sprite;
+        }
+        else
+        {
+            _itemImage.enabled = false;
+            _itemImage.sprite = null;
+        }
     }   
 }
