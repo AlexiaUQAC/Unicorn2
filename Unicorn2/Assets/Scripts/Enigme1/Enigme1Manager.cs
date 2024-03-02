@@ -1,52 +1,101 @@
-using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class Enigme1Manager : MonoBehaviour
 {
-    // Pour ouvrir la porte, tous les switch doivent être ON
-    // Pour activer le switch A, il faut baisser en même temps A1 et A2
-    // Pour activer le switch B, il faut baisser en même temps B1 et B2
+    // Pour ouvrir la porte, il faut activer les switch dans le bon ordre
+    [SerializeField] private PetitSwitch[] _switches;
 
-    [SerializeField] private bool _switchA;
-    [SerializeField] private bool _switchB;
+    [SerializeField] private GameObject _porte;
 
-    [SerializeField] private PetitSwitch _switchA1;
-    [SerializeField] private PetitSwitch _switchA2;
-    [SerializeField] private PetitSwitch _switchB1;
-    [SerializeField] private PetitSwitch _switchB2;
+    private bool _isPorteOuverte;
 
+    private int[] _secretCode = new int[] {1, 2, 3, 4};
 
-    private void Update()
+    [SerializeField] private List<int> _codeTry;
+
+    private void OnEnable()
     {
-        ActiverGrandSwitch();
+        _switches[0].OnSwitchSwitch += AddOrRemoveIndexToCombinaison;
+        _switches[1].OnSwitchSwitch += AddOrRemoveIndexToCombinaison;
+        _switches[2].OnSwitchSwitch += AddOrRemoveIndexToCombinaison;
+        _switches[3].OnSwitchSwitch += AddOrRemoveIndexToCombinaison;
+    }
+
+    private void OnDisable()
+    {
+        _switches[0].OnSwitchSwitch -= AddOrRemoveIndexToCombinaison;
+        _switches[1].OnSwitchSwitch -= AddOrRemoveIndexToCombinaison;
+        _switches[2].OnSwitchSwitch -= AddOrRemoveIndexToCombinaison;
+        _switches[3].OnSwitchSwitch -= AddOrRemoveIndexToCombinaison;
+    }
+
+    private void Start()
+    {
+        _codeTry = new List<int>();
+        _isPorteOuverte = false;
+    }
+
+    private void AddOrRemoveIndexToCombinaison(int index, bool b)
+    {
+        if(!_isPorteOuverte)
+        {
+            // Si un levier est activé
+            if(b)
+            {
+                
+                if(!_codeTry.Contains(index))
+                {
+                    // On ajoute son index à la combinaison
+                    _codeTry.Add(index);
+
+                    // On teste si pour le moment la combinaison est correcte
+                    int nbSwithON = _codeTry.Count;
+                    for (int i = 0; i <= nbSwithON-1; i++)
+                    {
+                        if (_codeTry[i] != _secretCode[i])
+                        {
+                            //ResetSwitch();
+                            return;
+                        }
+                    }
+                    if(nbSwithON == 4) OuvrirPorte();
+                    
+                }
+            }
+            // Si il est désactivé
+            else
+            {
+                if (_codeTry.Contains(index))
+                {
+                    // On retire son numéro de la combinaison
+                    _codeTry.Remove(index);
+                }
+            }
+        }
+    }
+
+    public void DesableSwitch()
+    {
+        foreach(PetitSwitch ps in _switches)
+        {
+            ps.enabled = false;
+        }
     }
 
     public void OuvrirPorte()
     {
-        if(_switchA && _switchB)
-        {
-            Debug.Log("Porte ouverte");
-        }
-    }
+        Debug.Log("Porte ouverte");
+        _isPorteOuverte = true;
 
-    public void ActiverGrandSwitch()
-    {
-        if(!_switchA && _switchA1.GetSwitchStatus() && _switchA2.GetSwitchStatus())
-        {
-            _switchA = true;
-            OuvrirPorte();
-        }
-
-        if (!_switchB && _switchB1.GetSwitchStatus() && _switchB2.GetSwitchStatus())
-        {
-            _switchB = true;
-            OuvrirPorte();
-        }
-
+        DesableSwitch();
+        _porte.transform.DOLocalRotate(new Vector3(0, -90, 0), 10).OnComplete(() => Debug.Log("Animation terminée"));
     }
 
 
 
- } // end script
+
+
+} // end script
 

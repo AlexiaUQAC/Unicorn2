@@ -41,10 +41,10 @@ public class GameManager : Singleton<GameManager>
     
     void Update()
     {
-        Debug.Log("Number of device : " + activePlayerControllers.Count);
-        for (int i = 0; i < activePlayerControllers.Count; i++)
+        //Debug.Log("Number of device : " + activePlayerControllers.Count);
+        for (int i = 0; i <= activePlayerControllers.Count-1; i++)
         {
-            Debug.Log("Device : " + activePlayerControllers[i].playerInput.devices[0]);
+            //Debug.Log("Device : " + activePlayerControllers[i].playerInput.devices[0]);
         }
     }
 
