@@ -29,13 +29,13 @@ public class Collectible : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        EventsManager.PlayerInActionSudRange(other, true, "<RAMASSER>");
+        EventsManager.PlayerInActionSudRange(other.tag, UI_Manager.UI_type.ACTION_UI, true, "<RAMASSER>");
         _playerInRange.Add(other.tag);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        EventsManager.PlayerInActionSudRange(other, false, "");
+        EventsManager.PlayerInActionSudRange(other.tag, UI_Manager.UI_type.ACTION_UI, false, "");
         _playerInRange.Remove(other.tag);
     }
 
@@ -48,12 +48,12 @@ public class Collectible : MonoBehaviour
             
             if (succed)
             {
-                EventsManager.PlayerInActionSudRange(null, false, "");
+                EventsManager.PlayerInActionSudRange(s, UI_Manager.UI_type.ACTION_UI, false, "");
                 Destroy(gameObject);
             }
             else
             {
-                Debug.Log("Inventory is full");
+                EventsManager.PlayerInActionSudRange(s, UI_Manager.UI_type.INFO_UI, false, "Invntaire plein!");
             }
         }
     }

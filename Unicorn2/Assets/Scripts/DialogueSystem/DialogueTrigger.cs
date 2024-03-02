@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogueTrigger : MonoBehaviour
+/*public class DialogueTrigger : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
@@ -14,4 +14,4 @@ public class DialogueTrigger : MonoBehaviour
     {
         EventsManager.PlayerInActionSudRange(other, false, "");
     }
-}
+}*/
