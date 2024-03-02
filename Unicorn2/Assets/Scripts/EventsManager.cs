@@ -6,6 +6,10 @@ public class EventsManager
     public static event Action<bool, string> OnActionRange_J1;
     public static event Action<bool, string> OnActionRange_J2;
 
+    public static bool player1InRange;
+    public static bool player2InRange;
+
+
 
     // Bouton sud
     public static void DisplayActionUI_J1(bool isActionRange, string message)
@@ -22,11 +26,12 @@ public class EventsManager
     {
         if (other.CompareTag("Player1"))
         {
+            player1InRange = b;
             DisplayActionUI_J1(b,s);
         }
-
-        if (other.CompareTag("Player2"))
+        else if (other.CompareTag("Player2"))
         {
+            player2InRange = b;
             DisplayActionUI_J2(b,s);
         }
     }
