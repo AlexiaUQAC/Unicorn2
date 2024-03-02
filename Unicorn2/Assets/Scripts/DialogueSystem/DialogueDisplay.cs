@@ -36,7 +36,7 @@ public class DialogueDisplay: MonoBehaviour
             
             currentAnimator = animator;
             
-            Debug.Log("Starting conversation with " + dialogue.NPCName);
+           // Debug.Log("Starting conversation with " + dialogue.NPCName);
             _nameText.text = dialogue.NPCName;
             sentences.Clear();
 
@@ -64,7 +64,7 @@ public class DialogueDisplay: MonoBehaviour
             string sentence = sentences.Dequeue();
             StopAllCoroutines();
             StartCoroutine(TypeSentence(sentence));
-            Debug.Log(sentence);
+            //Debug.Log(sentence);
             SetRandomAnimation();
         }
         
@@ -83,7 +83,7 @@ public class DialogueDisplay: MonoBehaviour
     private void EndDialogue()
     {
         _dialogueBox.SetActive(false);
-        Debug.Log("End of conversation");
+        //Debug.Log("End of conversation");
         StopAnimation();
         
         Invoke("DelayedEndDialogue", 1);
