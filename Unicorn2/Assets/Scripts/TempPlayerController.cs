@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class TempPlayerController: MonoBehaviour
 {
-    [SerializeField] private Transform _followTarget;
     public float speed = 5.0f; // Vitesse de déplacement du personnage
     public float rotationSpeed = 100.0f; // Vitesse de rotation
 
@@ -22,6 +21,5 @@ public class TempPlayerController: MonoBehaviour
         // Rotation gauche et droite
         float rotateHorizontal = Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime; // A et D
         rb.MoveRotation(rb.rotation * Quaternion.Euler(0f, rotateHorizontal, 0f));
-        //_followTarget.MoveRotation(rb.rotation * Quaternion.Euler(0f, rotateHorizontal, 0f));
     }
 }

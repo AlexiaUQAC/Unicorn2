@@ -40,6 +40,33 @@
                     "processors": "",
                     "interactions": "Press",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Ouest",
+                    "type": "Button",
+                    "id": "3b6d0e6c-ef4d-484e-b89a-159f8abafd93",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Est",
+                    "type": "Button",
+                    "id": "52b8a2ba-83df-4f61-a263-3146f2cf612f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Nord",
+                    "type": "Button",
+                    "id": "27d805ef-b9e6-4a6e-9f4f-e99c2f753e76",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -95,6 +122,39 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Camera",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4ee94168-6457-4e0a-8015-8fdc0ed6b10d",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Ouest",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6e2d8b0a-4fbf-451d-ac33-bc27620240fb",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Est",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "08c9f18a-8209-49ea-9a4b-f0da65515b92",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Nord",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

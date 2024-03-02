@@ -388,7 +388,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5947772960587027365}
-  m_LocalRotation: {x: 0.1371432, y: -0.000000014760366, z: 0.0000000020435929, w: 0.9905513}
+  m_LocalRotation: {x: 0.13714321, y: -0.000000014760366, z: 0.0000000020435933, w: 0.9905513}
   m_LocalPosition: {x: 0, y: 2.474, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -538,7 +538,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5947772960841733864}
-  m_LocalRotation: {x: 0.16018225, y: 0.000000023309845, z: -0.000000003782667, w: 0.9870875}
+  m_LocalRotation: {x: 0.16018224, y: -0.000000004252742, z: 6.9012535e-10, w: 0.9870875}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -713,7 +713,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5947772961108119561}
-  m_LocalRotation: {x: 0.13714316, y: -0.000000014760365, z: 0.0000000020435926, w: 0.99055123}
+  m_LocalRotation: {x: 0.13714318, y: -1.6784381e-17, z: -2.1570594e-17, w: 0.99055123}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1037,7 +1037,7 @@ GameObject:
   - component: {fileID: 5947772961505795350}
   m_Layer: 0
   m_Name: Avatar
-  m_TagString: Untagged
+  m_TagString: Player2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1072,7 +1072,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMovementBehaviour: {fileID: 5947772961505795350}
   playerAnimationBehaviour: {fileID: 5947772961282162205}
-  playerVisualsBehaviour: {fileID: 0}
   playerInput: {fileID: 5947772961505795346}
   movementSmoothingSpeed: 5
 --- !u!114 &5947772961505795346
@@ -1224,6 +1223,18 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 96c8be88-a7bb-4861-b5e9-956b4208d043
     m_ActionName: Menu Controls/Left Click[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3b6d0e6c-ef4d-484e-b89a-159f8abafd93
+    m_ActionName: Player Controls/Ouest[/SwitchProControllerHID/buttonWest]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 52b8a2ba-83df-4f61-a263-3146f2cf612f
+    m_ActionName: Player Controls/Est[/SwitchProControllerHID/buttonEast]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 27d805ef-b9e6-4a6e-9f4f-e99c2f753e76
+    m_ActionName: Player Controls/Nord[/SwitchProControllerHID/buttonNorth]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player Controls
