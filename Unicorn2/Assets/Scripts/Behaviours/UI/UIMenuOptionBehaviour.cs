@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIMenuOptionBehaviour : MonoBehaviour
+/*public class UIMenuOptionBehaviour : MonoBehaviour
 {
     public int contextPanelID;
 
@@ -10,4 +10,4 @@ public class UIMenuOptionBehaviour : MonoBehaviour
     {
         UIManager.Instance.MenuButtonOptionSelected(contextPanelID);
     }
-}
+}*/

@@ -37,7 +37,6 @@ public class GameManager : Singleton<GameManager>
         isPaused = false;
 
         SetupBasedOnGameState();
-        SetupUI();
     }
 
     void SetupBasedOnGameState()
@@ -105,14 +104,14 @@ public class GameManager : Singleton<GameManager>
     {
         for(int i = 0; i < activePlayerControllers.Count; i++)
         {
-            activePlayerControllers[i].SetupPlayer(i);
+            //activePlayerControllers[i].SetupPlayer(i);
         }
     }
 
-    void SetupUI()
+    /*void SetupUI()
     {
-        UIManager.Instance.SetupManager();
-    }
+        //UIManager.Instance.SetupManager();
+    }*/
 
     void SetupSinglePlayerCamera()
     {
@@ -130,8 +129,6 @@ public class GameManager : Singleton<GameManager>
         UpdateActivePlayerInputs();
 
         SwitchFocusedPlayerControlScheme();
-
-        UpdateUIMenu();
 
     }
 
@@ -161,10 +158,10 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    void UpdateUIMenu()
+    /*void UpdateUIMenu()
     {
         UIManager.Instance.UpdateUIMenuState(isPaused);
-    }
+    }*/
 
     //Get Data ----
 

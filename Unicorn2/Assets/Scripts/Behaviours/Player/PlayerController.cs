@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
     [Header("Sub Behaviours")]
     public PlayerMovementBehaviour playerMovementBehaviour;
     public PlayerAnimationBehaviour playerAnimationBehaviour;
-    public PlayerVisualsBehaviour playerVisualsBehaviour;
 
 
     [Header("Input Settings")]
@@ -38,7 +37,6 @@ public class PlayerController : MonoBehaviour
         currentControlScheme = playerInput.currentControlScheme;
 
         playerAnimationBehaviour.SetupBehaviour();
-        playerVisualsBehaviour.SetupBehaviour(playerID, playerInput);
     }
 
 
@@ -87,7 +85,6 @@ public class PlayerController : MonoBehaviour
         {
             currentControlScheme = playerInput.currentControlScheme;
 
-            playerVisualsBehaviour.UpdatePlayerVisuals();
             RemoveAllBindingOverrides();
         }
     }
@@ -98,8 +95,7 @@ public class PlayerController : MonoBehaviour
 
 
     public void OnDeviceLost()
-    {
-        playerVisualsBehaviour.SetDisconnectedDeviceVisuals();
+    { 
     }
 
 
@@ -111,7 +107,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator WaitForDeviceToBeRegained()
     {
         yield return new WaitForSeconds(0.1f);
-        playerVisualsBehaviour.UpdatePlayerVisuals();
+        
     }
 
 
