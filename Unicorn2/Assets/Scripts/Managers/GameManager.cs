@@ -17,7 +17,6 @@ public class GameManager : Singleton<GameManager>
 
     //Single Player
     public GameObject inScenePlayer;
-    public SinglePlayerCameraMode singlePlayerCameraMode;
 
     //Local Multiplayer
     public GameObject playerPrefab;
@@ -37,15 +36,6 @@ public class GameManager : Singleton<GameManager>
         isPaused = false;
 
         SetupBasedOnGameState();
-    }
-    
-    void Update()
-    {
-        Debug.Log("Number of device : " + activePlayerControllers.Count);
-        for (int i = 0; i < activePlayerControllers.Count; i++)
-        {
-            Debug.Log("Device : " + activePlayerControllers[i].playerInput.devices[0]);
-        }
     }
 
     void SetupBasedOnGameState()
@@ -128,7 +118,7 @@ public class GameManager : Singleton<GameManager>
 
     void SetupSinglePlayerCamera()
     {
-        CameraManager.Instance.SetupSinglePlayerCamera(singlePlayerCameraMode);
+        //CameraManager.Instance.SetupSinglePlayerCamera(singlePlayerCameraMode);
     }
 
     public void TogglePauseState(PlayerController newFocusedPlayerController)

@@ -31,7 +31,7 @@ Transform:
   m_Children:
   - {fileID: 3690681260491596232}
   m_Father: {fileID: 3690681260756062157}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3690681259757964041
 MonoBehaviour:
@@ -47,54 +47,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventSystem: {fileID: 3690681260491596233}
   inputSystemUIInputModule: {fileID: 3690681260491596234}
---- !u!1 &3690681260114258154
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3690681260114258153}
-  - component: {fileID: 3690681260114258152}
-  m_Layer: 0
-  m_Name: CameraManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3690681260114258153
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3690681260114258154}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3690681260756062157}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3690681260114258152
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3690681260114258154}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f400f9f72c25c304c9d8a3eb81f17279, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameplayCameraObject: {fileID: 0}
-  uiOverlayCameraObject: {fileID: 0}
-  VCamStationaryObject: {fileID: 0}
-  VCamSinglePlayerOrbitObject: {fileID: 0}
 --- !u!1 &3690681260491596235
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,7 +203,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentGameMode: 0
   inScenePlayer: {fileID: 0}
-  singlePlayerCameraMode: 0
   playerPrefab: {fileID: 1743518200311987069, guid: ca9ee4e0ea2b85646be0b08bab27e559, type: 3}
   numberOfPlayers: 2
   spawnRingCenter: {fileID: 3690681260589568879}
@@ -286,7 +237,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3690681260692104711}
-  - {fileID: 3690681260114258153}
   - {fileID: 3690681259757964042}
   m_Father: {fileID: 0}
   m_RootOrder: 0
