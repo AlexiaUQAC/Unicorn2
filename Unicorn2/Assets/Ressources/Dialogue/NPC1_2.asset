@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: NPC1_2
   m_EditorClassIdentifier: 
   NPCImage: {fileID: 21300000, guid: b76446236559e4a7ebfbdc6519fa9d07, type: 3}
-  NPCName: El Cactus
+  NPCName: Scientifique
   sentences:
-  - Indice enigme 1
-  - Tabarnak
-  - Loh !
+  - "Tabarnak! On est dans l'petit jus icitte, l\xE0!"
+  - "Pas l'temps d'niaiser, le chrono tourne. J'vous jure, si vous pigez pas c'te
+    game, \xE7a va \xEAtre l'c\xE2lisse de bordel."
+  - "On a pas d'temps \xE0 perdre, let's go!"

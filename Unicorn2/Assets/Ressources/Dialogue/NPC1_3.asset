@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: NPC1_3
   m_EditorClassIdentifier: 
   NPCImage: {fileID: 21300000, guid: b76446236559e4a7ebfbdc6519fa9d07, type: 3}
-  NPCName: El Cactus
+  NPCName: Scientifique
   sentences:
-  - Bravo continuez
-  - Tabarnak
-  - Loh !
+  - "Bravo, mes champions! Vous avez r\xE9ussi \xE0 d\xE9verrouiller la porte."
+  - "\xC7a fait du bien \xE0 mes nerfs, j'vous l'dis. Mais l\xE0, c'est pas l'moment
+    d'prendre une pause caf\xE9, faut continuer le combat."
+  - "Le monstre g\xE9n\xE9tique, c'est pas encore \xE0 l'abri."

@@ -32,7 +32,6 @@ public class DialogueDisplay: MonoBehaviour
     {
         if (!_isDialogueActive)
         {
-            _isDialogueActive = true;
             _dialogueBox.SetActive(true);
             
             currentAnimator = animator;
@@ -47,6 +46,8 @@ public class DialogueDisplay: MonoBehaviour
             }
 
             DisplayNextSentence();
+            
+            _isDialogueActive = true;
         }
     }
     

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
@@ -14,6 +15,8 @@ public class Enigme1Manager : MonoBehaviour
     private int[] _secretCode = new int[] {1, 2, 3, 4};
 
     [SerializeField] private List<int> _codeTry;
+    
+    public static Action FirstEnigmeSucceded;
 
     private void OnEnable()
     {
@@ -91,6 +94,8 @@ public class Enigme1Manager : MonoBehaviour
 
         DesableSwitch();
         _porte.transform.DOLocalRotate(new Vector3(0, -90, 0), 10).OnComplete(() => Debug.Log("Animation terminée"));
+        
+        FirstEnigmeSucceded?.Invoke();
     }
 
 
