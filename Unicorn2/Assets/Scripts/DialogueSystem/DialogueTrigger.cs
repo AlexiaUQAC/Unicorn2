@@ -7,17 +7,11 @@ public class DialogueTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.CompareTag("Player"))
-        {
-            EventsManager.DisplayActionUI(true);
-        }
+        EventsManager.PlayerInActionSudRange(other, true, "<PARLER>");
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
-            EventsManager.DisplayActionUI(false);
-        }
+        EventsManager.PlayerInActionSudRange(other, false, "");
     }
 }

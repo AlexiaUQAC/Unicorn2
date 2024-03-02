@@ -13,15 +13,15 @@ public class PetitSwitch : MonoBehaviour
     private Vector3 _screenOpen = new Vector3(1, 1, 1);
     private Vector3 _screenClose = new Vector3(0, 0, 0);
 
-    private void OnEnable()
+    /*private void OnEnable()
     {
-        PlayerController.OnNordBouton += ActionN;
+        PlayerController.OnSudBouton += ActionN;
     }
 
     private void OnDisable()
     {
-        PlayerController.OnNordBouton -= ActionN;
-    }
+        PlayerController.OnSudBouton -= ActionN;
+    }*/
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +30,7 @@ public class PetitSwitch : MonoBehaviour
         _screen.transform.DOScale(_screenClose, 1);
     }
 
-    private void OnTriggerStay(Collider other)
+    /*private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player") && Input.GetKeyDown(KeyCode.E))
         {
@@ -45,23 +45,17 @@ public class PetitSwitch : MonoBehaviour
             _screen.transform.DOScale(_screenClose, 1);
             Debug.Log(name + " désactivé");
         }
-    }
+    }*/
 
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.CompareTag("Player"))
-        {
-            EventsManager.DisplayActionUI(true);
-        }
+        EventsManager.PlayerInActionSudRange(other, true, "<ACTIVER>");
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
-            EventsManager.DisplayActionUI(false);
-        }
+        EventsManager.PlayerInActionSudRange(other, false, "");
     }
 
     public bool GetSwitchStatus()
@@ -69,9 +63,5 @@ public class PetitSwitch : MonoBehaviour
         return _switch;
     }
 
-    public void ActionN(string tag)
-    {
-        Debug.Log(tag);
-    }
 
 } // end script
