@@ -27,7 +27,7 @@ public class GameManager : Singleton<GameManager>
     public float spawnRingRadius;
 
     //Spawned Players
-    private List<PlayerController> activePlayerControllers;
+    public List<PlayerController> activePlayerControllers;
     private bool isPaused;
     private PlayerController focusedPlayerController;
 
@@ -75,7 +75,8 @@ public class GameManager : Singleton<GameManager>
             Destroy(inScenePlayer);
         }
 
-        SpawnPlayers();
+        //SpawnPlayers();
+        
 
         SetupActivePlayers();
     }

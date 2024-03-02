@@ -14,19 +14,9 @@ public class PlayerMovementBehaviour : MonoBehaviour
 
 
     //Stored Values
-    private Camera mainCamera;
+    public Camera mainCamera;
     private Vector3 movementDirection;
 
-
-    public void SetupBehaviour()
-    {
-        SetGameplayCamera();
-    }
-
-    void SetGameplayCamera()
-    {
-        mainCamera = CameraManager.Instance.GetGameplayCamera();
-    }
 
     public void UpdateMovementData(Vector3 newMovementDirection)
     {
@@ -69,7 +59,6 @@ public class PlayerMovementBehaviour : MonoBehaviour
         cameraRight.y = 0f;
         
         return cameraForward * movementDirection.z + cameraRight * movementDirection.x; 
-   
     }
 
 }
