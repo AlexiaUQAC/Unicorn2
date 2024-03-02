@@ -55,11 +55,11 @@ public class PlayerController : MonoBehaviour
     }
 
     //This is called from PlayerInput, when a button has been pushed, that corresponds with the 'Attack' action
-    public void OnAttack(InputAction.CallbackContext value)
+    public void OnAction(InputAction.CallbackContext value)
     {
         if(value.started)
         {
-            playerAnimationBehaviour.PlayAttackAnimation();
+            playerAnimationBehaviour.PlayActionAnimation();
         }
     }
 
