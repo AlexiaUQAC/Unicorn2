@@ -12,11 +12,13 @@ public class NPCDialogue : MonoBehaviour
     private void OnEnable()
     {
         PlayerController.OnSudBouton += ActiverDialog;
+        Enigme1Manager.FirstEnigmeSucceded += SetDialogueAfterEnigme;
     }
 
     private void OnDisable()
     {
         PlayerController.OnSudBouton -= ActiverDialog;
+        Enigme1Manager.FirstEnigmeSucceded -= SetDialogueAfterEnigme;
     }
 
     // Start is called before the first frame update
@@ -44,6 +46,16 @@ public class NPCDialogue : MonoBehaviour
         if(_playerInRange.Contains(s))
         {
             _dialogueDisplay.StartDialogue(_animator, _dialogues[_currentDialogueIndex]);
+
+            if (_currentDialogueIndex == 0)
+            {
+                _currentDialogueIndex = 1;
+            }
         }
+    }
+
+    private void SetDialogueAfterEnigme()
+    {
+        _currentDialogueIndex = 2;
     }
 }
