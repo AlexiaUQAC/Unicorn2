@@ -19,7 +19,6 @@ public class PlayerAnimationBehaviour : MonoBehaviour
     void SetupAnimationIDs()
     {
         playerMovementAnimationID = Animator.StringToHash("Movement");
-        playerAttackAnimationID = Animator.StringToHash("Action");
     }
 
     public void UpdateMovementAnimation(float movementBlendValue)
@@ -27,10 +26,10 @@ public class PlayerAnimationBehaviour : MonoBehaviour
         playerAnimator.SetFloat("Movement", movementBlendValue);
     }
 
-    public void PlayActionAnimation()
+    /*public void PlayActionAnimation()
     {
         playerAnimator.SetTrigger("Action");
-    }
+    }*/
 
 
 }
