@@ -42,7 +42,7 @@ public class GameManager : Singleton<GameManager>
     void Update()
     {
         //Debug.Log("Number of device : " + activePlayerControllers.Count);
-        for (int i = 0; i <= activePlayerControllers.Count-1; i++)
+        for (int i = 0; i < activePlayerControllers.Count; i++)
         {
             //Debug.Log("Device : " + activePlayerControllers[i].playerInput.devices[0]);
         }

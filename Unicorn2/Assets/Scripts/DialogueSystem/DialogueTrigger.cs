@@ -7,11 +7,11 @@ public class DialogueTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        EventsManager.PlayerInActionSudRange(other, true, "<PARLER>");
+        EventsManager.PlayerInActionSudRange(other.tag, UI_Manager.UI_type.ACTION_UI, true, "<PARLER>");
     }
 
     private void OnTriggerExit(Collider other)
     {
-        EventsManager.PlayerInActionSudRange(other, false, "");
+        EventsManager.PlayerInActionSudRange(other.tag, UI_Manager.UI_type.ACTION_UI, false, "");
     }
 }
