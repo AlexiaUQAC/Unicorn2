@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
@@ -29,6 +30,13 @@ public class PlayerController : MonoBehaviour
     private string currentControlScheme;
 
 
+    // Event
+    public static event Action<String> OnNordBouton;
+    public static event Action<String> OnSudBouton;
+    public static event Action<String> OnEstBouton;
+    public static event Action<String> OnOuestBouton;
+
+
     //This is called from the GameManager; when the game is being setup.
     public void SetupPlayer(int newPlayerID)
     {
@@ -52,12 +60,44 @@ public class PlayerController : MonoBehaviour
         rawInputMovement = new Vector3(inputMovement.x, 0, inputMovement.y);
     }
 
-    //This is called from PlayerInput, when a button has been pushed, that corresponds with the 'Attack' action
-    public void OnAction(InputAction.CallbackContext value)
+
+    //This is called from PlayerInput, when a button has been pushed, that corresponds with the 'Nord' action
+    public void OnActionNord(InputAction.CallbackContext value)
     {
-        if(value.started)
+        if (value.started)
         {
             playerAnimationBehaviour.PlayActionAnimation();
+            OnNordBouton?.Invoke(this.tag);
+        }
+    }
+
+    //This is called from PlayerInput, when a button has been pushed, that corresponds with the 'Sud' action
+    public void OnActionSud(InputAction.CallbackContext value)
+    {
+        if (value.started)
+        {
+            playerAnimationBehaviour.PlayActionAnimation();
+            OnSudBouton?.Invoke(this.tag);
+        }
+    }
+
+    //This is called from PlayerInput, when a button has been pushed, that corresponds with the 'Est' action
+    public void OnActionEst(InputAction.CallbackContext value)
+    {
+        if (value.started)
+        {
+            playerAnimationBehaviour.PlayActionAnimation();
+            OnEstBouton?.Invoke(this.tag);
+        }
+    }
+
+    //This is called from PlayerInput, when a button has been pushed, that corresponds with the 'Ouest' action
+    public void OnActionOuest(InputAction.CallbackContext value)
+    {
+        if (value.started)
+        {
+            playerAnimationBehaviour.PlayActionAnimation();
+            OnOuestBouton?.Invoke(this.tag);
         }
     }
 

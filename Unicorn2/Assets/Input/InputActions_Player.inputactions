@@ -24,7 +24,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Attack",
+                    "name": "Sud",
                     "type": "Button",
                     "id": "10fecf58-9483-40e0-ae20-15c8d01a4288",
                     "expectedControlType": "",
@@ -110,7 +110,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Attack",
+                    "action": "Sud",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

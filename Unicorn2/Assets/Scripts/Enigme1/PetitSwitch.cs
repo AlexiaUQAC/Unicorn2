@@ -13,6 +13,16 @@ public class PetitSwitch : MonoBehaviour
     private Vector3 _screenOpen = new Vector3(1, 1, 1);
     private Vector3 _screenClose = new Vector3(0, 0, 0);
 
+    private void OnEnable()
+    {
+        PlayerController.OnNordBouton += ActionN;
+    }
+
+    private void OnDisable()
+    {
+        PlayerController.OnNordBouton -= ActionN;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,6 +67,11 @@ public class PetitSwitch : MonoBehaviour
     public bool GetSwitchStatus()
     {
         return _switch;
+    }
+
+    public void ActionN(string tag)
+    {
+        Debug.Log(tag);
     }
 
 } // end script
