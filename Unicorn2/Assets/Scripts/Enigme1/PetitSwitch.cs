@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG;
 using DG.Tweening;
+using System;
 
 public class PetitSwitch : MonoBehaviour
 {
@@ -10,7 +11,11 @@ public class PetitSwitch : MonoBehaviour
     [SerializeField] private bool _switch;
     [SerializeField] private GameObject _screen;
     [SerializeField] private List<string> _playerInRange;
-    
+
+    [SerializeField] private int _index; // ordre d'activation
+    public event Action<int, bool> OnSwitchSwitch;
+
+
 
     private Vector3 _screenOpen = new Vector3(1, 1, 1);
     private Vector3 _screenClose = new Vector3(0, 0, 0);
@@ -33,7 +38,7 @@ public class PetitSwitch : MonoBehaviour
         _playerInRange = new List<string>();
     }
 
-    
+    #region Collider Enter and Exit
 
     private void OnTriggerEnter(Collider other)
     {
@@ -47,27 +52,47 @@ public class PetitSwitch : MonoBehaviour
         _playerInRange.Remove(other.tag);
     }
 
-    public bool GetSwitchStatus()
-    {
-        return _switch;
-    }
+    #endregion
+
+    #region Activation du switch
 
     private void ActiverSwitch(string s)
     {
         if(_playerInRange.Contains(s))
         {
-            _switch = !_switch;
-            if (_switch)
+            if (!_switch)
             {
-                _screen.transform.DOScale(_screenOpen, 1);
+                SwitchON();
             }
             else
             {
-                _screen.transform.DOScale(_screenClose, 1);
-
+                SwitchOFF();
             }
         }
     }
+
+    public void SwitchON()
+    {
+        _switch = true;
+        _screen.transform.DOScale(_screenOpen, 1);
+        // Event pour pr?venir le manager que je suis activ?
+        SwitchSwitch(_index, _switch);
+    }
+
+    public void SwitchOFF()
+    {
+        _switch = false;
+        _screen.transform.DOScale(_screenClose, 1);
+        // Event pour pr?venir le manager que je suis d?sactiv?
+        SwitchSwitch(_index, _switch);
+    }
+
+    public void SwitchSwitch(int index, bool b)
+    {
+        OnSwitchSwitch?.Invoke(index, b);
+    }
+
+    #endregion
 
 
 } // end script
