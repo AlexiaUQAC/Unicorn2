@@ -33,22 +33,7 @@ public class PetitSwitch : MonoBehaviour
         _playerInRange = new List<string>();
     }
 
-    /*private void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("Player") && Input.GetKeyDown(KeyCode.E))
-        {
-            _switch = true;
-            _screen.transform.DOScale(_screenOpen, 1);
-            Debug.Log(name + " activé");
-        }
-
-        if (other.CompareTag("Player") && Input.GetKeyDown(KeyCode.P))
-        {
-            _switch = false;
-            _screen.transform.DOScale(_screenClose, 1);
-            Debug.Log(name + " désactivé");
-        }
-    }*/
+    
 
     private void OnTriggerEnter(Collider other)
     {
@@ -75,16 +60,13 @@ public class PetitSwitch : MonoBehaviour
             if (_switch)
             {
                 _screen.transform.DOScale(_screenOpen, 1);
-                Debug.Log(name + "activé");
             }
             else
             {
                 _screen.transform.DOScale(_screenClose, 1);
-                Debug.Log(name + "désactivé");
 
             }
         }
-        
     }
 
 
