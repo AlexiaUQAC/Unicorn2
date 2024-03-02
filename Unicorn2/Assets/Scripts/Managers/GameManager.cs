@@ -38,6 +38,15 @@ public class GameManager : Singleton<GameManager>
 
         SetupBasedOnGameState();
     }
+    
+    void Update()
+    {
+        Debug.Log("Number of device : " + activePlayerControllers.Count);
+        for (int i = 0; i < activePlayerControllers.Count; i++)
+        {
+            Debug.Log("Device : " + activePlayerControllers[i].playerInput.devices[0]);
+        }
+    }
 
     void SetupBasedOnGameState()
     {
@@ -82,7 +91,6 @@ public class GameManager : Singleton<GameManager>
 
     void SpawnPlayers()
     {
-
         activePlayerControllers = new List<PlayerController>();
 
         for(int i = 0; i < numberOfPlayers; i++)
@@ -104,7 +112,12 @@ public class GameManager : Singleton<GameManager>
     {
         for(int i = 0; i < activePlayerControllers.Count; i++)
         {
-            //activePlayerControllers[i].SetupPlayer(i);
+            activePlayerControllers[i].SetupPlayer(i);
+        }
+
+        if (activePlayerControllers.Count > 0)
+        {
+            focusedPlayerController = activePlayerControllers[0];
         }
     }
 
