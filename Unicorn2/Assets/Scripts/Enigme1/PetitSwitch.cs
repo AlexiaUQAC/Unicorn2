@@ -42,13 +42,13 @@ public class PetitSwitch : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        EventsManager.PlayerInActionSudRange(other, true, "<ACTIVER>");
+        EventsManager.PlayerInActionSudRange(other.tag, UI_Manager.UI_type.ACTION_UI, true, "< ACTIVER >");
         _playerInRange.Add(other.tag);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        EventsManager.PlayerInActionSudRange(other, false, "");
+        EventsManager.PlayerInActionSudRange(other.tag, UI_Manager.UI_type.ACTION_UI, false, "");
         _playerInRange.Remove(other.tag);
     }
 
