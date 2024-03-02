@@ -4,17 +4,8 @@ using System.Collections;
 [ExecuteAlways]
 public class UIBillboardBehaviour : MonoBehaviour
 {
-    private Transform gameplayCameraTransform;
+    public Transform gameplayCameraTransform;
 
-    void OnEnable()
-    {
-        gameplayCameraTransform = CameraManager.Instance.GetGameplayCameraTransform();
-    }
-
-    void OnDisable()
-    {
-        gameplayCameraTransform = null;
-    }
  
     void LateUpdate()
     {

@@ -37,7 +37,6 @@ public class PlayerController : MonoBehaviour
 
         currentControlScheme = playerInput.currentControlScheme;
 
-        playerMovementBehaviour.SetupBehaviour();
         playerAnimationBehaviour.SetupBehaviour();
         playerVisualsBehaviour.SetupBehaviour(playerID, playerInput);
     }

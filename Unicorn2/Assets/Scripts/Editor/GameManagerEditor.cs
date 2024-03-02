@@ -22,6 +22,7 @@ public class GameManagerEditor : Editor
     private SerializedProperty numberOfPlayersProperty;
     private SerializedProperty spawnRingCenterProperty;
     private SerializedProperty spawnRingRadiusProperty;
+    private SerializedProperty activePlayerControllersProperty;
 
     void OnEnable()
     {
@@ -38,6 +39,7 @@ public class GameManagerEditor : Editor
         numberOfPlayersProperty = serializedObject.FindProperty("numberOfPlayers");
         spawnRingCenterProperty = serializedObject.FindProperty("spawnRingCenter");
         spawnRingRadiusProperty = serializedObject.FindProperty("spawnRingRadius");
+        activePlayerControllersProperty = serializedObject.FindProperty("activePlayerControllers");
 
     }
 
@@ -89,6 +91,8 @@ public class GameManagerEditor : Editor
 
         EditorGUILayout.PropertyField(spawnRingCenterProperty);
         EditorGUILayout.PropertyField(spawnRingRadiusProperty);
+        
+        EditorGUILayout.PropertyField(activePlayerControllersProperty);
     }
 
     void DrawSpaceGUI(int amountOfSpace)
