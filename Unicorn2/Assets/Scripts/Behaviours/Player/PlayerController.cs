@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
     {
         if (value.started)
         {
-            playerAnimationBehaviour.PlayActionAnimation();
+            //playerAnimationBehaviour.PlayActionAnimation();
             OnNordBouton?.Invoke(this.tag);
         }
     }
@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour
     {
         if (value.started)
         {
-            playerAnimationBehaviour.PlayActionAnimation();
+            //playerAnimationBehaviour.PlayActionAnimation();
             OnSudBouton?.Invoke(this.tag);
         }
     }
@@ -86,7 +86,7 @@ public class PlayerController : MonoBehaviour
     {
         if (value.started)
         {
-            playerAnimationBehaviour.PlayActionAnimation();
+            //playerAnimationBehaviour.PlayActionAnimation();
             OnEstBouton?.Invoke(this.tag);
         }
     }
@@ -96,7 +96,7 @@ public class PlayerController : MonoBehaviour
     {
         if (value.started)
         {
-            playerAnimationBehaviour.PlayActionAnimation();
+            //playerAnimationBehaviour.PlayActionAnimation();
             OnOuestBouton?.Invoke(this.tag);
         }
     }
@@ -109,9 +109,6 @@ public class PlayerController : MonoBehaviour
             GameManager.Instance.TogglePauseState(this);
         }
     }
-
-
-
 
 
     //INPUT SYSTEM AUTOMATIC CALLBACKS --------------
