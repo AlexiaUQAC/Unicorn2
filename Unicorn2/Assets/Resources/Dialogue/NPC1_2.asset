@@ -16,6 +16,5 @@ MonoBehaviour:
   NPCName: Scientifique
   sentences:
   - "Tabarnak! On est dans l'petit jus icitte, l\xE0!"
-  - "Pas l'temps d'niaiser, le chrono tourne. J'vous jure, si vous pigez pas c'te
-    game, \xE7a va \xEAtre l'c\xE2lisse de bordel."
+  - Pas l'temps d'niaiser, le chrono tourne.
   - "On a pas d'temps \xE0 perdre, let's go!"

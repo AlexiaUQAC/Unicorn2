@@ -15,7 +15,7 @@ MonoBehaviour:
   NPCImage: {fileID: 21300000, guid: b76446236559e4a7ebfbdc6519fa9d07, type: 3}
   NPCName: "Ing\xE9nieur"
   sentences:
-  - "Crisse de c\xE2lisse, vous avez fait \xE7a! Vous avez trouv\xE9 la maudite combinaison
-    qui sauve notre monstre."
+  - "C\xE2line !  Vous avez fait \xE7a! Vous avez trouv\xE9 la maudite s\xE9quence
+    qui a sauv\xE9 le pov' Jos\xE9 !"
   - "J'suis impressionn\xE9, l\xE0. On a \xE9vit\xE9 le pire. "
-  - Merci mes chums !
+  - "Merci mes chums ! Et vive le pov Jos\xE9 !"
