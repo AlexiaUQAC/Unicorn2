@@ -10,6 +10,8 @@ public class Collectible : MonoBehaviour
     private InventoryManager _inventoryManager;
     
     public Action<GameObject> OnCollectiblePickedUp;
+    
+    
 
     private void OnEnable()
     {
@@ -53,6 +55,9 @@ public class Collectible : MonoBehaviour
             {
                 EventsManager.PlayerInActionSudRange(s, UI_Manager.UI_type.ACTION_UI, false, "");
                 OnCollectiblePickedUp?.Invoke(gameObject);
+                
+                AudioManager.instance.PlayGrabCollectible();
+                
                 Destroy(gameObject);
             }
             else

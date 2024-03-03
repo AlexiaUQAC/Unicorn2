@@ -52,8 +52,13 @@ public class Trash : MonoBehaviour
         {
             if (!_inventoryManager.IsEmpty(s))
             {
+                AudioManager.instance.PlayTrashCollectible();
                 EventsManager.PlayerInActionSudRange(s, UI_Manager.UI_type.ACTION_UI, false, "");
                 _inventoryManager.RemoveCollectible(null, s);
+            }
+            else
+            {
+                EventsManager.PlayerInActionSudRange(s, UI_Manager.UI_type.INFO_UI, true, "Rien à jeter !");
             }
         }
     }
