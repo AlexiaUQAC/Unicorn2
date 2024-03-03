@@ -25,7 +25,7 @@ public class Sweepo_IA : MonoBehaviour
             }
             else
             {
-                Debug.Log("Search destination");
+                //Debug.Log("Search destination");
                 SetDestinationAndMoveTo();
             }
         }
@@ -53,7 +53,7 @@ public class Sweepo_IA : MonoBehaviour
     {
         if (RandomPoint(transform.position, _range, out var point))
         {
-            Debug.Log(point);
+            //Debug.Log(point);
             _agent.SetDestination(point);
         }
     }

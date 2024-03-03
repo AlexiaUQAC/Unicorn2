@@ -10,7 +10,7 @@ public class Sequencer : MonoBehaviour
     [SerializeField] private GameObject _adnFusion;
     [SerializeField] private GameObject[] _adnFusionColor;
 
-    [SerializeField] private int indexFusion;
+    public int indexFusion = -1;
 
     private void OnEnable()
     {
@@ -98,6 +98,18 @@ public class Sequencer : MonoBehaviour
             }
         }
     } // end place ADN
+    
+    public int GetIndexFusion()
+    {
+        int index = indexFusion;
+        indexFusion = -1;
+        for (int i = 0; i < 6; i++)
+        {
+            _adnFusionColor[i].SetActive(false);
+        }
+        
+        return index;
+    }
 
 
 } // end script

@@ -6,6 +6,8 @@ public class TourelleControl : MonoBehaviour
 {
     public TourelleBehaviour[] tourelles;
     public GameObject[] projectiles;
+    public Sequencer sequencer;
+    public BossColider bossColider;
     
     private List<string> _playerInRange;
     
@@ -27,14 +29,14 @@ public class TourelleControl : MonoBehaviour
         _playerInRange = new List<string>();
     }
     
-    void Update()
+    /*void Update()
     {
         if (Input.GetKeyDown(KeyCode.X))
         {
             Debug.Log("ForceShoot");
-            ForceShoot();
+            //ForceShoot();
         }
-    }
+    }*/
 
     #region Collider Enter and Exit
 
@@ -58,30 +60,34 @@ public class TourelleControl : MonoBehaviour
             // TODO : Chec if there is 2 ADN in the loader and get the color 
             //int color = GetColorFromLoader();
             // Get a random projectile index 
-            int color = UnityEngine.Random.Range(0, projectiles.Length);
+            int color = sequencer.GetIndexFusion();
             
             if (color!=-1)
             {
                 EventsManager.PlayerInActionSudRange(s, UI_Manager.UI_type.ACTION_UI, false, "");
                 tourelles[0].Shoot(projectiles[color]);
                 tourelles[1].Shoot(projectiles[color]);
-                OnShoot?.Invoke();
+
+                if (color == 3)
+                {
+                    bossColider.BossSaved();
+                }
             }
             else
             {
                 Debug.Log("Inventaire plein");
-                EventsManager.PlayerInActionSudRange(s, UI_Manager.UI_type.INFO_UI, true, "Il faut 2 ADNs !");
+                EventsManager.PlayerInActionSudRange(s, UI_Manager.UI_type.INFO_UI, true, "Il avor fusionner les ADNs !");
             }
         }
     }
     
-    public void ForceShoot()
+    /*public void ForceShoot()
     {
         // Get a random projectile index 
         int color = UnityEngine.Random.Range(0, projectiles.Length);
         tourelles[0].Shoot(projectiles[color]);
         tourelles[1].Shoot(projectiles[color]);
         OnShoot?.Invoke();
-    }
+    }*/
     
 }

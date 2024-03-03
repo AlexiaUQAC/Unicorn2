@@ -2,19 +2,23 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class BossColider : MonoBehaviour
 {
     public static Action OnBossSaved;
 
+    public GameObject bossSkin;
+    public GameObject bossSavedSkin;
+    public NavMeshAgent agent;
     
-    
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.name == "ProjectileViolet")
-        {
-            OnBossSaved?.Invoke();
-        }
-    }
 
+    public void BossSaved()
+    {
+        bossSkin.SetActive(false);
+        bossSavedSkin.SetActive(true);
+        
+        OnBossSaved?.Invoke();
+    }
+    
 }

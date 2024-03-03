@@ -30,7 +30,7 @@ public class NPCDialogue : MonoBehaviour
         _playerInRange = new List<string>();
         _dialogueDisplay = FindObjectOfType<DialogueDisplay>();
         _animator = GetComponent<Animator>();
-        _npcName = _dialogues[0].name;
+        _npcName = _dialogues[0].NPCName;
     }
     
     private void OnTriggerEnter(Collider other)
@@ -68,6 +68,7 @@ public class NPCDialogue : MonoBehaviour
     
     private void SetDialogueEnd()
     {
+        Debug.Log("SetDialogueEnd" + _npcName);
         if (_npcName == "Ingénieur")
         {
             _currentDialogueIndex = 2;
