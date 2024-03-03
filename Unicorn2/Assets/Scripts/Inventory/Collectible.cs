@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,8 @@ public class Collectible : MonoBehaviour
     public Collectible_So collectible;
     private List<string> _playerInRange;
     private InventoryManager _inventoryManager;
+    
+    public Action<GameObject> OnCollectiblePickedUp;
 
     private void OnEnable()
     {
@@ -49,6 +52,7 @@ public class Collectible : MonoBehaviour
             if (succed)
             {
                 EventsManager.PlayerInActionSudRange(s, UI_Manager.UI_type.ACTION_UI, false, "");
+                OnCollectiblePickedUp?.Invoke(gameObject);
                 Destroy(gameObject);
             }
             else
