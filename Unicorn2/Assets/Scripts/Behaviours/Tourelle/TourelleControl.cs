@@ -42,7 +42,7 @@ public class TourelleControl : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        EventsManager.PlayerInActionSudRange(other.tag, UI_Manager.UI_type.ACTION_UI, true, "< SHOOT >");
+        EventsManager.PlayerInActionSudRange(other.tag, UI_Manager.UI_type.ACTION_UI, true, "< Implanter la nouvelle  <color=#76C7FF> séquence d'ADN </color>.");
         _playerInRange.Add(other.tag);
     }
 
@@ -76,7 +76,7 @@ public class TourelleControl : MonoBehaviour
             else
             {
                 Debug.Log("Inventaire plein");
-                EventsManager.PlayerInActionSudRange(s, UI_Manager.UI_type.INFO_UI, true, "Il avor fusionner les ADNs !");
+                EventsManager.PlayerInActionSudRange(s, UI_Manager.UI_type.INFO_UI, true, "Il n'y a pas de séquence d'ADN dans le <color=#76C7FF> séquenceur</color>.");
             }
         }
     }

@@ -15,9 +15,13 @@ MonoBehaviour:
   NPCImage: {fileID: 21300000, guid: b76446236559e4a7ebfbdc6519fa9d07, type: 3}
   NPCName: Scientifique
   sentences:
-  - "H\xE9 l\xE0 ! Merci d'\xEAtre venus mes chums ! "
-  - "J'ai cr\xE9\xE9 une sacr\xE9e b\xEAte g\xE9n\xE9tiquement modifi\xE9e, mais
-    l\xE0, c'est pu moi qui la contr\xF4le. "
-  - "C'est rendu un vrai casse-t\xEAte."
+  - "H\xE9 l\xE0 ! Merci d'avoir r\xE9pondu \xE0 l'appel mes chums ! J'ai besoin
+    de votre aide pour sauver Jos\xE9."
+  - "En travaillant sur un prototype de notre s\xE9quenceur d'ADN, le pov Jos\xE9
+    a mut\xE9."
+  - "C'est rendu un vrai casse-t\xEAte. On contr\xF4le pu rien pantoute !"
   - "Faut que vous m'aidiez \xE0 r\xE9gler c'te situation avant que \xE7a tourne
     en cauchemar. Allez, mettez-vous \xE0 l'ouvrage!"
+  - "En attendant cotre aide, je me suis enferm\xE9 dans cette salle mais je ne me
+    souviens plus du code."
+  - "Ouvrez la porte pour sauver le pov Jos\xE9 !"
