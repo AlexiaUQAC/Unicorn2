@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enigme2Manager : MonoBehaviour
 {
-    [SerializeField] private bool _isPorteLocked;
+    /*[SerializeField] private bool _isPorteLocked;
 
     private void Start()
     {
@@ -15,4 +15,9 @@ public class Enigme2Manager : MonoBehaviour
     {
         return _isPorteLocked;
     }
+
+    public void SetPorteLocked(bool b)
+    {
+        _isPorteLocked = b;
+    }*/
 }

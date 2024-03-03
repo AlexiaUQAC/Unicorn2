@@ -9,7 +9,13 @@ public class E2_DoublePorte : MonoBehaviour
 
     [SerializeField] private GameObject _porteGauche;
     [SerializeField] private GameObject _porteDroite;
+    [SerializeField] private GameObject _carteGauche;
+    [SerializeField] private GameObject _carteDroite;
+
     [SerializeField] private List<string> _playerInRange;
+    [SerializeField] private bool _isPorteLocked;
+    private InventoryManager _inventoryManager;
+    [SerializeField]private Collectible_So _keyType;
 
     // Cette porte a besoin de deux clés 
     //magnétiques de<color=#76C7FF>niveau 1 </color>pour s'ouvrir.
@@ -26,7 +32,9 @@ public class E2_DoublePorte : MonoBehaviour
 
     private void Start()
     {
+        _isPorteLocked = true;
         FermerPorte_E2();
+        _inventoryManager = FindObjectOfType<InventoryManager>();
     }
 
     #region Collider Enter and Exit
@@ -34,7 +42,7 @@ public class E2_DoublePorte : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // Si la porte est unlocked, alors elle s'ouvre automatiquement
-        if(!_enigme2Manager.GetIsPorteLocked())
+        if(!_isPorteLocked)
         {
             if (other.CompareTag("Player1") || other.CompareTag("Player2"))
             {
@@ -44,7 +52,17 @@ public class E2_DoublePorte : MonoBehaviour
         // Sinon, il faut afficher l'UI pour la déverouiller
         else
         {
-            EventsManager.PlayerInActionSudRange(other.tag, UI_Manager.UI_type.ACTION_UI, true, "< OUVRIR >");
+            // Si le joueur a carte de niveau 1 dans son inventaire
+            if (_inventoryManager.IsItemInInventory(tag, _keyType))
+            {
+                // Si carte alors message
+                EventsManager.PlayerInActionSudRange(tag, UI_Manager.UI_type.INFO_UI, true, "Placer la carte magnétiques de<color=#76C7FF> niveau 1 </color>.");
+            }
+            else
+            {
+                EventsManager.PlayerInActionSudRange(other.tag, UI_Manager.UI_type.ACTION_UI, true, "< OUVRIR >");
+            }
+            
             _playerInRange.Add(other.tag);
         }
         
@@ -53,7 +71,7 @@ public class E2_DoublePorte : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         // Si la porte est unlocked, alors elle se ferme automatiquement
-        if (!_enigme2Manager.GetIsPorteLocked())
+        if (!_isPorteLocked)
         {
             if (other.CompareTag("Player1") || other.CompareTag("Player2"))
             {
@@ -75,15 +93,43 @@ public class E2_DoublePorte : MonoBehaviour
 
     public void UnlockPorte(string tag)
     {
-        if (_playerInRange.Contains(tag))
+        if(_isPorteLocked)
         {
-            // Si le joueur n'a pas de carte de niveau 1 dans son inventaire
-            //TO DO : Check inventaire si carte
+            if (_playerInRange.Contains(tag))
+            {
+                // Si le joueur n'a pas de carte de niveau 1 dans son inventaire
+                if (!_inventoryManager.IsItemInInventory(tag, _keyType))
+                {
+                    // Si pas carte alors message
+                    EventsManager.PlayerInActionSudRange(tag, UI_Manager.UI_type.INFO_UI, true, "Cette porte a besoin de deux clés \nmagnétiques de<color=#76C7FF> niveau 1 </color>pour s'ouvrir.");
+                }
+                // Si il a une carte, on l'utilise
+                else
+                {
+                    // mettre carte porte
+                    if (!_carteGauche.activeInHierarchy)
+                    {
+                        _carteGauche.SetActive(true);
+                        // Supprimer carte de l'inventaire
+                        _inventoryManager.RemoveCollectible(_keyType, tag);
+                        EventsManager.PlayerInActionSudRange(tag, UI_Manager.UI_type.ACTION_UI, false, "");
+                    }
+                    else if (!_carteDroite.activeInHierarchy)
+                    {
+                        _carteDroite.SetActive(true);
+                        // Supprimer carte de l'inventaire
+                        _inventoryManager.RemoveCollectible(_keyType, tag);
+                        _isPorteLocked = false;
+                        OuvrirPorte_E2();
+                        EventsManager.PlayerInActionSudRange(tag, UI_Manager.UI_type.ACTION_UI, false, "");
 
-            // Si pas carte alors message
-            EventsManager.PlayerInActionSudRange(tag, UI_Manager.UI_type.INFO_UI, true, "Cette porte a besoin de deux clés \nmagnétiques de<color=#76C7FF> niveau 1 </color>pour s'ouvrir.");
+                    }
 
+                }
+
+            }
         }
+        
     }
 
     #endregion
