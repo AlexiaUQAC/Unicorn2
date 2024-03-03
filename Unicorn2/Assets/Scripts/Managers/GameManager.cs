@@ -29,11 +29,15 @@ public class GameManager : Singleton<GameManager>
     public List<PlayerController> activePlayerControllers;
     private bool isPaused;
     private PlayerController focusedPlayerController;
+    
+    // UI 
+    private UI_Manager UIManager;
 
     void Start()
     {
-
-        isPaused = false;
+        isPaused = true;
+        
+        UIManager = FindObjectOfType<UI_Manager>();
 
         SetupBasedOnGameState();
     }
@@ -124,12 +128,14 @@ public class GameManager : Singleton<GameManager>
     public void TogglePauseState(PlayerController newFocusedPlayerController)
     {
         focusedPlayerController = newFocusedPlayerController;
+        
+        UIManager.ShowPauseMenu(!isPaused);
 
         isPaused = !isPaused;
 
         ToggleTimeScale();
 
-        UpdateActivePlayerInputs();
+        /*UpdateActivePlayerInputs();*/
 
         SwitchFocusedPlayerControlScheme();
 
@@ -185,6 +191,13 @@ public class GameManager : Singleton<GameManager>
     
 
     //Pause Utilities ----
+    
+    public void StartGame()
+    {
+        isPaused = false;
+        ToggleTimeScale();
+        UIManager.ShowStartMenu(false);
+    }
 
     void ToggleTimeScale()
     {
@@ -202,6 +215,11 @@ public class GameManager : Singleton<GameManager>
         }
 
         Time.timeScale = newTimeScale;
+    }
+    
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 
 
