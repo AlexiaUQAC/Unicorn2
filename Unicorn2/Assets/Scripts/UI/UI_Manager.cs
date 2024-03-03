@@ -1,8 +1,9 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 public class UI_Manager : MonoBehaviour
 {
@@ -24,6 +25,11 @@ public class UI_Manager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI J1_InfoText;
     [SerializeField] private GameObject J2_InfoGO;
     [SerializeField] private TextMeshProUGUI J2_InfoText;
+    
+    // Pause 
+    [SerializeField] private GameObject _startMenu;
+    [SerializeField] private GameObject _pauseMenu;
+    [SerializeField] private Button _resumeButton;
 
     private void OnEnable()
     {
@@ -85,7 +91,20 @@ public class UI_Manager : MonoBehaviour
             J2_InfoText.text = "";
         }
     }
+    
+    public void ShowPauseMenu(bool b)
+    {
+        _pauseMenu.SetActive(b);
+        // Set the first button to be selected
+        if (b)
+        {
+            _resumeButton.Select();
+        }
+    }
 
 
-
+    public void ShowStartMenu(bool b)
+    {
+        _startMenu.SetActive(b);
+    }
 } // end script
