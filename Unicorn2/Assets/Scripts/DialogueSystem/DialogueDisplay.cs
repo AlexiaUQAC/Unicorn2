@@ -9,6 +9,8 @@ public class DialogueDisplay: MonoBehaviour
     [SerializeField] private TextMeshProUGUI _dialogueText;
     [SerializeField] private GameObject _dialogueBox;
     
+    private AudioSource _audioSource;
+    
     private Queue<string> sentences;
     private bool _isDialogueActive;
     private bool _endOfSentence = true;
@@ -26,6 +28,7 @@ public class DialogueDisplay: MonoBehaviour
     
     public void Start()
     {
+        _audioSource = GetComponent<AudioSource>();
         sentences = new Queue<string>();
     }
     
@@ -34,6 +37,8 @@ public class DialogueDisplay: MonoBehaviour
         if (!_isDialogueActive)
         {
             _dialogueBox.SetActive(true);
+            
+            AudioManager.instance.PlayDialogue();
             
             currentAnimator = animator;
             
@@ -88,6 +93,8 @@ public class DialogueDisplay: MonoBehaviour
         _dialogueBox.SetActive(false);
         //Debug.Log("End of conversation");
         StopAnimation();
+        
+        AudioManager.instance.StopDialogue();
         
         Invoke("DelayedEndDialogue", 1);
     }
