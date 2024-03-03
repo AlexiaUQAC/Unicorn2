@@ -13,6 +13,9 @@ public class TableFusion : MonoBehaviour
     [SerializeField] private InventoryManager _inventoryManager;
     [SerializeField] private List<string> _playerInRange;
 
+    private int _indexADNDroite;
+    private int _indexADNGauche;
+    private bool _isReady = false;
 
     private void OnEnable()
     {
@@ -70,6 +73,8 @@ public class TableFusion : MonoBehaviour
                         }
                         else _adnGaucheColor[i].SetActive(false);
                     }
+
+                    _indexADNGauche = indexCouleur;
                 }
                 else
                 {
@@ -82,6 +87,9 @@ public class TableFusion : MonoBehaviour
                         }
                         else _adnDroiteColor[i].SetActive(false);
                     }
+
+                    _indexADNDroite= indexCouleur;
+                    _isReady = true;
                 }
 
                 // Enlever pessage "Placer ADN"
@@ -93,9 +101,32 @@ public class TableFusion : MonoBehaviour
             // Il n'y a plus de place dans le séquenceur
             else
             {
-                EventsManager.PlayerInActionSudRange(tag, UI_Manager.UI_type.INFO_UI, true, "Il n'y a plus de place dans le '<color=#76C7FF> séquenceur d'ADN </color>.");
+                EventsManager.PlayerInActionSudRange(tag, UI_Manager.UI_type.INFO_UI, true, "Il n'y a plus de place dans le <color=#76C7FF> séquenceur d'ADN </color>.");
             }
         }
     } // end place ADN
+
+
+    public int GetADNGauche()
+    {
+        return _indexADNGauche;
+    }
+
+
+    public int GetADNDroite()
+    {
+        return _indexADNDroite;
+    }
+
+    public bool IsReady()
+    {
+        return _isReady;
+    }
+
+    public void DesableADN()
+    {
+        _adnDroite.SetActive(false);
+        _adnGauche.SetActive(false);
+    }
 
 } // End script

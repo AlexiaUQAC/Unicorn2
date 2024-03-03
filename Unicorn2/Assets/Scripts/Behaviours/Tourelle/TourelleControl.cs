@@ -40,7 +40,7 @@ public class TourelleControl : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        EventsManager.PlayerInActionSudRange(other.tag, UI_Manager.UI_type.ACTION_UI, true, "<SHOOT>");
+        EventsManager.PlayerInActionSudRange(other.tag, UI_Manager.UI_type.ACTION_UI, true, "< SHOOT >");
         _playerInRange.Add(other.tag);
     }
 
