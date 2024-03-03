@@ -12,6 +12,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip grabCollectible;
     public AudioClip trashCollectible;
     public AudioClip shootProjectile;
+    public AudioClip door;
+    public AudioClip scan;
 
     private void Start()
     {
@@ -60,5 +62,15 @@ public class AudioManager : MonoBehaviour
     public void StopDialogue()
     {
         dialogueSource.Stop();
+    }
+
+    public void PlayDoor()
+    {
+        PlaySFX(door);
+    }
+
+    public void PlayScan()
+    {
+        PlaySFX(scan);
     }
 }

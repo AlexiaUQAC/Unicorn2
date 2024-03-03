@@ -92,10 +92,14 @@ public class Enigme1Manager : MonoBehaviour
         Debug.Log("Porte ouverte");
         _isPorteOuverte = true;
 
+        AudioManager.instance.PlayDoor();
+
         DesableSwitch();
         _porte.transform.DOLocalRotate(new Vector3(0, -90, 0), 10).OnComplete(() => Debug.Log("Animation terminée"));
         
         FirstEnigmeSucceded?.Invoke();
+
+
     }
 
 

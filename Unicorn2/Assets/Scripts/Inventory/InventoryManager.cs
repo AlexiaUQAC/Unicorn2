@@ -51,6 +51,7 @@ public class InventoryManager : MonoBehaviour
 
     public bool RemoveCollectible( string s)
     {
+        AudioManager.instance.PlayTrashCollectible();
         if (s == "Player1")
         {
              _inventoryP1.RemoveCollectible();
