@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 543ed28c8f387094ab2333a3781fa0e1, type: 3}
-  m_Name: jaune
+  m_Name: 0
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 5e299f0e37bb743d18a897985d5734d8, type: 3}
+  sprite: {fileID: 21300000, guid: 54a33a9b352144d0b86f3628cd1f6d2f, type: 3}

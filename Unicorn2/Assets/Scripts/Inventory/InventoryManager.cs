@@ -36,16 +36,29 @@ public class InventoryManager : MonoBehaviour
         return false;
     }
 
-    public bool RemoveCollectible(Collectible_So collectible, string s)
+    public int GetIndexADN(string s)
     {
         if (s == "Player1")
         {
-             _inventoryP1.RemoveCollectible(collectible);
+            return int.Parse(_inventoryP1._collectibles[0].name);
+        }
+        else if (s == "Player2")
+        {
+            return int.Parse(_inventoryP2._collectibles[0].name);
+        }
+        return -1; // exprès mauvaise couleur pour montrer que c'est une erreur;
+    }
+
+    public bool RemoveCollectible( string s)
+    {
+        if (s == "Player1")
+        {
+             _inventoryP1.RemoveCollectible();
         }
         if (s == "Player2")
         {
 
-            _inventoryP2.RemoveCollectible(collectible);
+            _inventoryP2.RemoveCollectible();
         }
 
         return false;

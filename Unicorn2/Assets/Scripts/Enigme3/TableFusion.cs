@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TableFusion : MonoBehaviour
-{/*
+{
     [SerializeField] private GameObject _adnGauche;
     [SerializeField] private GameObject[] _adnGaucheColor;
 
@@ -11,23 +11,25 @@ public class TableFusion : MonoBehaviour
     [SerializeField] private GameObject[] _adnDroiteColor;
 
     [SerializeField] private InventoryManager _inventoryManager;
-    [SerializeField] private Collectible_So _keyType;
+    [SerializeField] private List<string> _playerInRange;
+
+
+    private void OnEnable()
+    {
+        PlayerController.OnSudBouton += PlaceADN;
+    }
+
+    private void OnDisable()
+    {
+        PlayerController.OnSudBouton -= PlaceADN;
+    }
 
     #region Collider Enter and Exit
-    /*
+
     private void OnTriggerEnter(Collider other)
     {
         
-        // Si le joueur un ADN dans son inventaire
-        if (_inventoryManager.IsItemInInventory(other.tag, _keyType))
-        {
-            // Si carte alors message
-            EventsManager.PlayerInActionSudRange(tag, UI_Manager.UI_type.INFO_UI, true, "Placer la carte magnétiques de<color=#76C7FF> niveau 1 </color>.");
-        }
-        else
-        {
-            EventsManager.PlayerInActionSudRange(other.tag, UI_Manager.UI_type.ACTION_UI, true, "< OUVRIR >");
-        }
+        EventsManager.PlayerInActionSudRange(other.tag, UI_Manager.UI_type.ACTION_UI, true, "Placer l'échantillon d'<color=#76C7FF> ADN </color>.");     
 
         _playerInRange.Add(other.tag);
         
@@ -36,21 +38,64 @@ public class TableFusion : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        // Si la porte est unlocked, alors elle se ferme automatiquement
-        if (!_isPorteLocked)
-        {
-            if (other.CompareTag("Player1") || other.CompareTag("Player2"))
-            {
-                FermerPorte_E2();
-            }
-        }
-        // Sinon, enleve l'UI lié au déverouillage de la porte
-        else
-        {
-            EventsManager.PlayerInActionSudRange(other.tag, UI_Manager.UI_type.ACTION_UI, false, "");
-            _playerInRange.Remove(other.tag);
-        }
+        
+        EventsManager.PlayerInActionSudRange(other.tag, UI_Manager.UI_type.ACTION_UI, false, "");
+        _playerInRange.Remove(other.tag);
+      
     }
 
-    #endregion*/
-}
+    #endregion
+
+    // Fonction appelé quand le joueur appuie sur bouton sud
+    public void PlaceADN(string tag)
+    {
+        // Si le joueur est dans la range
+        if(_playerInRange.Contains(tag))
+        {
+            // Si il reste un emplacement d'ADN dans la machine
+            if(!_adnGauche.activeInHierarchy || !_adnDroite.activeInHierarchy)
+            {
+
+                // On place à gauche ou à droite
+                int indexCouleur = _inventoryManager.GetIndexADN(tag);
+                // Placer ADN
+                if(!_adnGauche.activeInHierarchy)
+                {
+                    _adnGauche.SetActive(true);
+                    for(int i = 0; i < 3; i++)
+                    {
+                        if(i == indexCouleur)
+                        {
+                            _adnGaucheColor[i].SetActive(true);
+                        }
+                        else _adnGaucheColor[i].SetActive(false);
+                    }
+                }
+                else
+                {
+                    _adnDroite.SetActive(true);
+                    for (int i = 0; i < 3; i++)
+                    {
+                        if (i == indexCouleur)
+                        {
+                            _adnDroiteColor[i].SetActive(true);
+                        }
+                        else _adnDroiteColor[i].SetActive(false);
+                    }
+                }
+
+                // Enlever pessage "Placer ADN"
+                EventsManager.PlayerInActionSudRange(tag, UI_Manager.UI_type.ACTION_UI, false, "");
+
+                // Vider inventory
+                _inventoryManager.RemoveCollectible(tag);
+            }
+            // Il n'y a plus de place dans le séquenceur
+            else
+            {
+                EventsManager.PlayerInActionSudRange(tag, UI_Manager.UI_type.INFO_UI, true, "Il n'y a plus de place dans le '<color=#76C7FF> séquenceur d'ADN </color>.");
+            }
+        }
+    } // end place ADN
+
+} // End script
