@@ -5,14 +5,9 @@ using UnityEngine;
 
 public class BossColider : MonoBehaviour
 {
-    public Action OnBossSaved;
-    public static BossColider instance;
+    public static Action OnBossSaved;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        instance = this;
-    }
+    
     
     private void OnTriggerEnter(Collider other)
     {

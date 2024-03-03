@@ -14,14 +14,14 @@ public class NPCDialogue : MonoBehaviour
     {
         PlayerController.OnSudBouton += ActiverDialog;
         Enigme1Manager.FirstEnigmeSucceded += SetDialogueAfterEnigme1;
-        BossColider.instance.OnBossSaved += SetDialogueEnd;
+        BossColider.OnBossSaved += SetDialogueEnd;
     }
 
     private void OnDisable()
     {
         PlayerController.OnSudBouton -= ActiverDialog;
         Enigme1Manager.FirstEnigmeSucceded -= SetDialogueAfterEnigme1;
-        BossColider.instance.OnBossSaved -= SetDialogueEnd;
+        BossColider.OnBossSaved -= SetDialogueEnd;
     }
 
     // Start is called before the first frame update
