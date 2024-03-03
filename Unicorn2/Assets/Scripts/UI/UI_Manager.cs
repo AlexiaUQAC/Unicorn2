@@ -29,6 +29,7 @@ public class UI_Manager : MonoBehaviour
     // Pause 
     [SerializeField] private GameObject _startMenu;
     [SerializeField] private GameObject _pauseMenu;
+    [SerializeField] private GameObject _endMenu;
     [SerializeField] private Button _resumeButton;
 
     private void OnEnable()
@@ -106,5 +107,10 @@ public class UI_Manager : MonoBehaviour
     public void ShowStartMenu(bool b)
     {
         _startMenu.SetActive(b);
+    }
+
+    public void ShowEnd()
+    {
+        _endMenu.SetActive(true);
     }
 } // end script

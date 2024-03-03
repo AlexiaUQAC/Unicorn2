@@ -9,6 +9,9 @@ public class DialogueDisplay: MonoBehaviour
     [SerializeField] private TextMeshProUGUI _dialogueText;
     [SerializeField] private GameObject _dialogueBox;
     
+    private string _currentSentence;
+    public UI_Manager uI_Manager;
+    
     private AudioSource _audioSource;
     
     private Queue<string> sentences;
@@ -68,9 +71,9 @@ public class DialogueDisplay: MonoBehaviour
             }
             
             _endOfSentence = false;
-            string sentence = sentences.Dequeue();
+            _currentSentence = sentences.Dequeue();
             StopAllCoroutines();
-            StartCoroutine(TypeSentence(sentence));
+            StartCoroutine(TypeSentence(_currentSentence));
             //Debug.Log(sentence);
             SetRandomAnimation();
         }
@@ -97,6 +100,11 @@ public class DialogueDisplay: MonoBehaviour
         AudioManager.instance.StopDialogue();
         
         Invoke("DelayedEndDialogue", 1);
+
+        if (_currentSentence == "Merci mes chums ! Et vive le pov José !")
+        {
+            uI_Manager.ShowEnd();
+        }
     }
 
     private void SetRandomAnimation()
