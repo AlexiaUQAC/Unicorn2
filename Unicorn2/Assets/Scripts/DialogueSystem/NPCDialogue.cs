@@ -4,6 +4,7 @@ using UnityEngine;
 public class NPCDialogue : MonoBehaviour
 {
     [SerializeField] private Dialogue_So[] _dialogues;
+    private string _npcName;
     private int _currentDialogueIndex;
     private List<string> _playerInRange;
     private DialogueDisplay _dialogueDisplay;
@@ -12,13 +13,15 @@ public class NPCDialogue : MonoBehaviour
     private void OnEnable()
     {
         PlayerController.OnSudBouton += ActiverDialog;
-        Enigme1Manager.FirstEnigmeSucceded += SetDialogueAfterEnigme;
+        Enigme1Manager.FirstEnigmeSucceded += SetDialogueAfterEnigme1;
+        BossColider.instance.OnBossSaved += SetDialogueEnd;
     }
 
     private void OnDisable()
     {
         PlayerController.OnSudBouton -= ActiverDialog;
-        Enigme1Manager.FirstEnigmeSucceded -= SetDialogueAfterEnigme;
+        Enigme1Manager.FirstEnigmeSucceded -= SetDialogueAfterEnigme1;
+        BossColider.instance.OnBossSaved -= SetDialogueEnd;
     }
 
     // Start is called before the first frame update
@@ -27,6 +30,7 @@ public class NPCDialogue : MonoBehaviour
         _playerInRange = new List<string>();
         _dialogueDisplay = FindObjectOfType<DialogueDisplay>();
         _animator = GetComponent<Animator>();
+        _npcName = _dialogues[0].name;
     }
     
     private void OnTriggerEnter(Collider other)
@@ -54,8 +58,21 @@ public class NPCDialogue : MonoBehaviour
         }
     }
 
-    private void SetDialogueAfterEnigme()
+    private void SetDialogueAfterEnigme1()
     {
-        _currentDialogueIndex = 2;
+        if (_npcName == "Scientifique")
+        {
+            _currentDialogueIndex = 2;
+        }
+    }
+    
+    private void SetDialogueEnd()
+    {
+        if (_npcName == "Ingénieur")
+        {
+            _currentDialogueIndex = 2;
+            
+            _dialogueDisplay.StartDialogue(_animator, _dialogues[_currentDialogueIndex]);
+        }
     }
 }

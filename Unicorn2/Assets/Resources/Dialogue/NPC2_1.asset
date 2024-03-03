@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59a9e8e2148e3564c9f9d59e527b9aaa, type: 3}
+  m_Name: NPC2_1
+  m_EditorClassIdentifier: 
+  NPCImage: {fileID: 21300000, guid: b76446236559e4a7ebfbdc6519fa9d07, type: 3}
+  NPCName: "Ing\xE9nieur"
+  sentences:
+  - "H\xE9 ho! C'est l'ing\xE9nieur qui parle l\xE0."
+  - "J'ai ici un s\xE9quenceur d'ADN ben particulier, li\xE9 \xE0 un sacr\xE9 canon."
+  - "Si vous r\xE9ussissez \xE0 fusionner l'ADN comme il faut, on pourrait ben sauver
+    notre monstre g\xE9n\xE9tiquement modifi\xE9."
+  - "Faut \xEAtre fins, hein! Sinon, \xE7a risque de virer au gros bazar. Bonne chance,
+    gang!"
