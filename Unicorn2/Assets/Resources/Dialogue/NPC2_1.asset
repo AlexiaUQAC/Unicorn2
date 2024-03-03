@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: NPC2_1
   m_EditorClassIdentifier: 
   NPCImage: {fileID: 21300000, guid: b76446236559e4a7ebfbdc6519fa9d07, type: 3}
-  NPCName: Scientifique
+  NPCName: "Ing\xE9nieur"
   sentences:
-  - "H\xE9 l\xE0 ! Merci d'\xEAtre venus mes chums ! "
-  - "J'ai cr\xE9\xE9 une sacr\xE9e b\xEAte g\xE9n\xE9tiquement modifi\xE9e, mais
-    l\xE0, c'est pu moi qui la contr\xF4le. "
-  - "C'est rendu un vrai casse-t\xEAte."
-  - "Faut que vous m'aidiez \xE0 r\xE9gler c'te situation avant que \xE7a tourne
-    en cauchemar. Allez, mettez-vous \xE0 l'ouvrage!"
+  - "H\xE9 ho! C'est l'ing\xE9nieur qui parle l\xE0."
+  - "J'ai ici un s\xE9quenceur d'ADN ben particulier, li\xE9 \xE0 un sacr\xE9 canon."
+  - "Si vous r\xE9ussissez \xE0 fusionner l'ADN comme il faut, on pourrait ben sauver
+    notre monstre g\xE9n\xE9tiquement modifi\xE9."
+  - "Faut \xEAtre fins, hein! Sinon, \xE7a risque de virer au gros bazar. Bonne chance,
+    gang!"

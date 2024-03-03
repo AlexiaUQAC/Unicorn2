@@ -13,9 +13,12 @@ MonoBehaviour:
   m_Name: NPC2_2
   m_EditorClassIdentifier: 
   NPCImage: {fileID: 21300000, guid: b76446236559e4a7ebfbdc6519fa9d07, type: 3}
-  NPCName: Scientifique
+  NPCName: "Ing\xE9nieur"
   sentences:
-  - "Tabarnak! On est dans l'petit jus icitte, l\xE0!"
-  - "Pas l'temps d'niaiser, le chrono tourne. J'vous jure, si vous pigez pas c'te
-    game, \xE7a va \xEAtre l'c\xE2lisse de bordel."
-  - "On a pas d'temps \xE0 perdre, let's go!"
+  - "\xC7a presse en tabarnak, l\xE0!"
+  - Le temps presse, mes chums! Trouvez la bonne combinaison d'ADN pour sauver notre
+    monstre.
+  - "C'est pas l'moment d'niaiser avec \xE7a. C'est comme chercher une aiguille dans
+    une meule de foin, mais faut ben que quelqu'un s'en occupe. "
+  - "Soyez pas \xE0 c\xF4t\xE9 de la track, sinon on perd tout. Votre cerveau, c'est
+    pas juste pour faire joli, l\xE0!"

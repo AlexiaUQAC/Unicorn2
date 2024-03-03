@@ -14,12 +14,14 @@ public class NPCDialogue : MonoBehaviour
     {
         PlayerController.OnSudBouton += ActiverDialog;
         Enigme1Manager.FirstEnigmeSucceded += SetDialogueAfterEnigme1;
+        BossColider.instance.OnBossSaved += SetDialogueEnd;
     }
 
     private void OnDisable()
     {
         PlayerController.OnSudBouton -= ActiverDialog;
         Enigme1Manager.FirstEnigmeSucceded -= SetDialogueAfterEnigme1;
+        BossColider.instance.OnBossSaved -= SetDialogueEnd;
     }
 
     // Start is called before the first frame update
@@ -64,5 +66,13 @@ public class NPCDialogue : MonoBehaviour
         }
     }
     
-    // TODO : Set dialogue end
+    private void SetDialogueEnd()
+    {
+        if (_npcName == "Ingénieur")
+        {
+            _currentDialogueIndex = 2;
+            
+            _dialogueDisplay.StartDialogue(_animator, _dialogues[_currentDialogueIndex]);
+        }
+    }
 }

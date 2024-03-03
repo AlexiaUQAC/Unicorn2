@@ -26,6 +26,15 @@ public class TourelleControl : MonoBehaviour
     {
         _playerInRange = new List<string>();
     }
+    
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            Debug.Log("ForceShoot");
+            ForceShoot();
+        }
+    }
 
     #region Collider Enter and Exit
 
@@ -64,6 +73,15 @@ public class TourelleControl : MonoBehaviour
                 EventsManager.PlayerInActionSudRange(s, UI_Manager.UI_type.INFO_UI, true, "Il faut 2 ADNs !");
             }
         }
+    }
+    
+    public void ForceShoot()
+    {
+        // Get a random projectile index 
+        int color = UnityEngine.Random.Range(0, projectiles.Length);
+        tourelles[0].Shoot(projectiles[color]);
+        tourelles[1].Shoot(projectiles[color]);
+        OnShoot?.Invoke();
     }
     
 }
