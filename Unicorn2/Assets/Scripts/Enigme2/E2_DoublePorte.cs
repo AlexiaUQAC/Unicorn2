@@ -22,12 +22,12 @@ public class E2_DoublePorte : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerController.OnSudBouton += UnlockPorte;
+        //PlayerController.OnSudBouton += UnlockPorte;
     }
 
     private void OnDisable()
     {
-        PlayerController.OnSudBouton -= UnlockPorte;
+        //PlayerController.OnSudBouton -= UnlockPorte;
     }
 
     private void Start()
@@ -49,6 +49,7 @@ public class E2_DoublePorte : MonoBehaviour
                 OuvrirPorte_E2();
             }
         }
+        /*
         // Sinon, il faut afficher l'UI pour la déverouiller
         else
         {
@@ -64,8 +65,8 @@ public class E2_DoublePorte : MonoBehaviour
             }
             
             _playerInRange.Add(other.tag);
-        }
-        
+        }*/
+
     }
 
     private void OnTriggerExit(Collider other)
@@ -77,13 +78,13 @@ public class E2_DoublePorte : MonoBehaviour
             {
                 FermerPorte_E2();
             }
-        }
+        }/*
         // Sinon, enleve l'UI lié au déverouillage de la porte
         else
         {
             EventsManager.PlayerInActionSudRange(other.tag, UI_Manager.UI_type.ACTION_UI, false, "");
             _playerInRange.Remove(other.tag);
-        }
+        }*/
     }
 
     #endregion
@@ -146,5 +147,9 @@ public class E2_DoublePorte : MonoBehaviour
         _porteDroite.transform.DOLocalMove(new Vector3(-3.22f, 0, 0), 1);
     }
 
+    public bool IsPorteLocked()
+    {
+        return _isPorteLocked;
+    }
 
 }
