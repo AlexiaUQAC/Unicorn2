@@ -31,7 +31,7 @@ public class Inventory : MonoBehaviour
         return false;
     }
     
-    public void RemoveCollectible(Collectible_So collectible)
+    public void RemoveCollectible()
     {
         if(_collectibles.Count > 0)
         {

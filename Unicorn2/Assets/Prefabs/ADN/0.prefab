@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8950264489522010494}
   - component: {fileID: 3673090226828092275}
   m_Layer: 0
-  m_Name: bleu
+  m_Name: 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beab2f58a36f30e4db1f6bc1547926b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectible: {fileID: 11400000, guid: e02fd9926b4585f4c82d83d56bd4ac78, type: 2}
+  collectible: {fileID: 11400000, guid: 9af693e9d2b9677439bf32494b2f6c08, type: 2}
 --- !u!1001 &8950264488290472243
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -177,7 +177,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1082485648353420, guid: 0e6d6d558ca4cf541bec93d8568d8fff, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4897994254921308, guid: 0e6d6d558ca4cf541bec93d8568d8fff, type: 3}
       propertyPath: m_RootOrder
@@ -387,7 +387,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1082485648353420, guid: 0e6d6d558ca4cf541bec93d8568d8fff, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4897994254921308, guid: 0e6d6d558ca4cf541bec93d8568d8fff, type: 3}
       propertyPath: m_RootOrder

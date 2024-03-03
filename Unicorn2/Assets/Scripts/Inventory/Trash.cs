@@ -30,7 +30,7 @@ public class Trash : MonoBehaviour
     {
         if (!_inventoryManager.IsEmpty(other.tag))
         {
-            EventsManager.PlayerInActionSudRange(other.tag, UI_Manager.UI_type.ACTION_UI, true, "<JETER>");
+            EventsManager.PlayerInActionSudRange(other.tag, UI_Manager.UI_type.ACTION_UI, true, "< JETER >");
         }
         _playerInRange.Add(other.tag);
     }
@@ -53,7 +53,7 @@ public class Trash : MonoBehaviour
             if (!_inventoryManager.IsEmpty(s))
             {
                 EventsManager.PlayerInActionSudRange(s, UI_Manager.UI_type.ACTION_UI, false, "");
-                _inventoryManager.RemoveCollectible(null, s);
+                _inventoryManager.RemoveCollectible(s);
             }
         }
     }

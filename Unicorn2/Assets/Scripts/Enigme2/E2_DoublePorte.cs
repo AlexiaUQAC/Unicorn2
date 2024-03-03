@@ -111,14 +111,14 @@ public class E2_DoublePorte : MonoBehaviour
                     {
                         _carteGauche.SetActive(true);
                         // Supprimer carte de l'inventaire
-                        _inventoryManager.RemoveCollectible(_keyType, tag);
+                        _inventoryManager.RemoveCollectible(tag);
                         EventsManager.PlayerInActionSudRange(tag, UI_Manager.UI_type.ACTION_UI, false, "");
                     }
                     else if (!_carteDroite.activeInHierarchy)
                     {
                         _carteDroite.SetActive(true);
                         // Supprimer carte de l'inventaire
-                        _inventoryManager.RemoveCollectible(_keyType, tag);
+                        _inventoryManager.RemoveCollectible(tag);
                         _isPorteLocked = false;
                         OuvrirPorte_E2();
                         EventsManager.PlayerInActionSudRange(tag, UI_Manager.UI_type.ACTION_UI, false, "");
