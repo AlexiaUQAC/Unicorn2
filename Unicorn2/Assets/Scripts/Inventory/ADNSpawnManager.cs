@@ -5,12 +5,12 @@ using UnityEngine.InputSystem.Android;
 
 public class ADNSpawnManager : MonoBehaviour
 {
-    public GameObject ADN;
+    public GameObject[] ADN;
     
     public List<ADNSpawnPoint> spawnPoints;
     public List<GameObject> ADNList;
     
-    private int adnToSpawn = 5;
+    public int adnToSpawn = 5;
     
     private float _spawnRate = 5f;
     
@@ -34,7 +34,10 @@ public class ADNSpawnManager : MonoBehaviour
     {
         if (ADNList.Count < adnToSpawn)
         {
-            var adnSpawn = GetEmptySpawnPoint().SpawnADN(ADN);
+            // Get a random ADN from the list
+            var rand = ADN[Random.Range(0, ADN.Length)];
+            
+            var adnSpawn = GetEmptySpawnPoint().SpawnADN(rand);
             ADNList.Add(adnSpawn);
         }
     }
