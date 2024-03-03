@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c19e8e9a-c495-4be0-bb16-f6118af5d542" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/Mixamo/Creature Pack/mutant idle (2).fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/Mixamo/Creature Pack/mutant idle (2).fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/Synty/PolygonSciFiSpace/URP_ExtractMe.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Merge.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Merge.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Unicorn2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Unicorn2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Alexia.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Alexia.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/Inventory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/Inventory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/InventoryManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/InventoryManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +22,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Behaviours/Boss/IA_Behaviour.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Behaviours/Tourelle/TourelleBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Inventory/Tr.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -36,7 +37,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "develop",
+    "git-widget-placeholder": "Alexia/ADN",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -108,7 +109,7 @@
       <option name="presentableId" value="Default" />
       <updated>1709429812908</updated>
       <workItem from="1709429815315" duration="3830000" />
-      <workItem from="1709434666097" duration="3843000" />
+      <workItem from="1709434666097" duration="5526000" />
     </task>
     <servers />
   </component>
