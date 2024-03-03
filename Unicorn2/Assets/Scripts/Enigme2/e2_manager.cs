@@ -35,8 +35,8 @@ public class e2_manager : MonoBehaviour
     private void Start()
     {
         _isPorteLocked = true;
-        FermerPorte_E2();
         _inventoryManager = FindObjectOfType<InventoryManager>();
+        FermerPorte_E2();
     }
 
     #region Collider Enter and Exit
