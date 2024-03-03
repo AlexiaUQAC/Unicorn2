@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Merge.unity
     guid: f56f6a6845574d041868b4af35f2de98
+  - enabled: 1
+    path: Assets/Scenes/Alexia.unity
+    guid: 1fbae6debcb16d34fb68409de02fc44a
   m_configObjects: {}
