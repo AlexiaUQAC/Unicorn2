@@ -54,7 +54,7 @@ public class Collectible : MonoBehaviour
             else
             {
                 Debug.Log("Inventaire plein");
-                EventsManager.PlayerInActionSudRange(s, UI_Manager.UI_type.INFO_UI, true, "Inventaire plein!");
+                EventsManager.PlayerInActionSudRange(s, UI_Manager.UI_type.INFO_UI, true, "Inventaire plein !");
             }
         }
     }
