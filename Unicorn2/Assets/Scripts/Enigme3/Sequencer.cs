@@ -89,7 +89,8 @@ public class Sequencer : MonoBehaviour
                     else _adnFusionColor[i].SetActive(false);
                 }
 
-                
+                AudioManager.instance.PlayScan();
+
             }
             // Le sequenceur N,est pas encore plein
             else

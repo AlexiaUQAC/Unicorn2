@@ -38,10 +38,13 @@ public class E2_grandePorte : MonoBehaviour
     public void OuvrirPorte_E2()
     {
         _porte.transform.DOLocalMove(new Vector3(0, 4.668f, 0), 2);
+        AudioManager.instance.PlayDoor();
     }
 
     public void FermerPorte_E2()
     {
+        
         _porte.transform.DOLocalMove(new Vector3(0, 1.79f, 0), 2);
+        AudioManager.instance.PlayDoor();
     }
 } // end script

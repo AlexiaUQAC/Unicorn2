@@ -9,7 +9,7 @@ public class IA_Behaviour : MonoBehaviour
 {
     private NavMeshAgent _agent;
     private Animator _animator;
-    private float _range = 15f;
+    private float _range = 5f;
 
     private void Start()
     {
