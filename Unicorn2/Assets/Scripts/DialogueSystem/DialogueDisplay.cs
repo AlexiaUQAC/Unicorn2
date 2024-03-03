@@ -50,10 +50,10 @@ public class DialogueDisplay: MonoBehaviour
             {
                 sentences.Enqueue(sentence);
             }
-
-            DisplayNextSentence();
             
             _isDialogueActive = true;
+
+            DisplayNextSentence();
         }
     }
     
