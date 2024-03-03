@@ -11,6 +11,7 @@ public class DialogueDisplay: MonoBehaviour
     
     private Queue<string> sentences;
     private bool _isDialogueActive;
+    private bool _endOfSentence = true;
     private Animator currentAnimator; 
     
     private void OnEnable()
@@ -53,14 +54,15 @@ public class DialogueDisplay: MonoBehaviour
     
     private void DisplayNextSentence(string s = "")
     {
-        if (_isDialogueActive)
+        if (_isDialogueActive && _endOfSentence)
         {
             if (sentences.Count == 0)
             {
                 EndDialogue();
                 return;
             }
-    
+            
+            _endOfSentence = false;
             string sentence = sentences.Dequeue();
             StopAllCoroutines();
             StartCoroutine(TypeSentence(sentence));
@@ -78,6 +80,7 @@ public class DialogueDisplay: MonoBehaviour
             _dialogueText.text += letter;
             yield return null;
         }
+        _endOfSentence = true;
     }
     
     private void EndDialogue()
