@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TourelleBehaviour : MonoBehaviour
 {
-    public GameObject projectile;
+    public GameObject[] projectile;
     public Transform firePoint;
     public Transform canon;
     public Transform target;
@@ -26,7 +26,10 @@ public class TourelleBehaviour : MonoBehaviour
         float angle = Vector3.Angle(targetDir, canon.forward);
         canon.rotation = Quaternion.LookRotation(targetDir);
         
-        GameObject bullet = Instantiate(projectile, firePoint.position, firePoint.rotation);
+        // Get a random projectile
+        int randomIndex = Random.Range(0, projectile.Length);
+        
+        GameObject bullet = Instantiate(projectile[randomIndex], firePoint.position, firePoint.rotation);
         bullet.GetComponent<HS_ProjectileMover>().LateStart();
     }
 }
