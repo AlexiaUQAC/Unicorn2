@@ -8,6 +8,20 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private Inventory _inventoryP1;
     [SerializeField] private Inventory _inventoryP2;
 
+    public bool IsEmpty(string s)
+    {
+        if (s == "Player1")
+        {
+            return _inventoryP1.IsEmpty();
+        }
+        if (s == "Player2")
+        {
+            return _inventoryP2.IsEmpty();
+        }
+
+        return true;
+    }
+
     public bool AddCollectible(Collectible_So collectible, string s)
     {
         if (s == "Player1")

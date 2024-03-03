@@ -15,6 +15,11 @@ public class Inventory : MonoBehaviour
         _collectibles = new List<Collectible_So>();
     }
     
+    public bool IsEmpty()
+    {
+        return _collectibles.Count == 0;
+    }
+    
     public bool AddCollectible(Collectible_So collectible)
     {
         if (_collectibles.Count < _maxCollectibles)
@@ -30,7 +35,7 @@ public class Inventory : MonoBehaviour
     {
         if(_collectibles.Count > 0)
         {
-            _collectibles.Remove(collectible);
+            _collectibles.Clear();
             OnInventoryChanged?.Invoke(null);
         }
         
